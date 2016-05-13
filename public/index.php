@@ -1,0 +1,23 @@
+<?php
+
+require __DIR__ . "/../bootstrap/start.php";
+
+Dotenv::load(__DIR__ . "/../");
+
+require __DIR__ . "/../bootstrap/db.php";
+require __DIR__ . "/../routes.php";
+
+$match = $router->match();
+
+if($match){
+  list ($controller, $method) = explode("@", $match['target']);
+
+  if (is_callable(array($controller, $method))){
+      $object = new $controller();
+      call_user_func_array(array($object, $method), array($match['params']));
+  }
+}else{
+
+    echo "cannot find url " .$match;
+    exit();
+}
