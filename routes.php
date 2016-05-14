@@ -1,10 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: baby
- * Date: 5/9/2016
- * Time: 1:17 AM
- */
+
+use Acme\Models\Testimonial as Testimonial;
+use Acme\Models\User as User;
 
 $router->map("GET", "/", 'Acme\Controller\PageController@getShowHomePage', "home");
 
@@ -15,4 +12,6 @@ $router->map("GET", "/register", 'Acme\Controller\RegisterController@getShowRegi
 $router->map("POST", "/register", 'Acme\Controller\RegisterController@postShowRegisterPage', "register_post");
 
 $router->map("GET", "/database", 'Acme\Controller\PageController@ShowDbPage', "database");
-##$router->map("GET", "/", "PageController@ShowHomePage", "home");
+
+
+$router->map("GET", "/[*]" , 'Acme\Controller\PageController@getShowPage', "pages");

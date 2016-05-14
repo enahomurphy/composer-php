@@ -25,9 +25,9 @@ class RegisterController extends  BaseController
        ];
 
        $validator = new validator();
-       $error = $validator->isValid($validator_data);
+       $_SESSION['error'] = $validator->isValid($validator_data);
       // echo $this->twig->render("register.html", array( "errors" => $error  ) );
-       echo $this->blade->render("register");
+       echo $this->blade->render("register") ;
 
 
    }

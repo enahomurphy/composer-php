@@ -4,9 +4,14 @@
 
         <div class="form-wrapper">
           <h2 style="text-align:center ">Register</h2>
-
-
-          </div>
+            @if(isset($_SESSION['error']))
+            <div class="alert alert-success">
+                @foreach($_SESSION['error'] as $error)
+                    {{ $error }}
+                <br>
+                @endforeach
+            </div>
+           @endif
           <form style="width: 600px;" class="form-horizontal" role="form" action="/register" method="post">
             <div class="form-group">
               <label class="control-label col-sm-2" for="first_name">firstname:</label>
