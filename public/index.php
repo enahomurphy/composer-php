@@ -10,7 +10,7 @@ require __DIR__ . "/../routes.php";
 
 $match = $router->match();
 //var_dump($match);
-//check is match target is a string or function
+//check if match target is a string or function
 if(is_string($match["target"])) {
     list ($controller, $method) = explode("@", $match['target']);
 }
